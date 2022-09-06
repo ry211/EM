@@ -13,14 +13,6 @@ k=2
 maxtimes_iterations=10000
 alp = list()
 
-# initial value
-mu_s1=rep(1, ncol(dat)) #2 initial mean must be different
-mu_s2=rep(0, ncol(dat))
-mu_s=list(mu_s1,mu_s2)
-sigma_s1=diag(ncol(dat))
-sigma_s2=diag(ncol(dat))
-sigma_s=list(sigma_s1,sigma_s2)
-
 
 
 ################### EM-function #####################
@@ -81,6 +73,15 @@ for (ite in 1:100) {
   w_ik0 = matrix(0, ncol = k, nrow = nrow(dat)) 
   w_ik_old=w_ik0
   
+  # initial value
+  mu_s1=rep(1, ncol(dat)) #2 initial mean must be different
+  mu_s2=rep(0, ncol(dat))
+  mu_s=list(mu_s1,mu_s2)
+  sigma_s1=diag(ncol(dat))
+  sigma_s2=diag(ncol(dat))
+  sigma_s=list(sigma_s1,sigma_s2)
+  
+  #
   ye1[[ite]] = GMM(dat,w_ik0,alpha,mu_s,sigma_s,epsilon,maxtimes_iterations)
 }
 
