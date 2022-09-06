@@ -96,6 +96,7 @@ for (ite in 1:100) {
 }  
 
 avg_bias = sum(abs(unlist(ye_mean1)))/length(unlist(ye_mean1)) #0.265304
+avg_bias1 = sum(unlist(ye_mean1))/length(unlist(ye_mean1)) #-0.1221698
 MSE=sum((unlist(ye_mean1))^2)/length(unlist(ye_mean1)) #0.1183009
 avg_alpha = sum(abs(unlist(ye_alpha1)))/length(unlist(ye_alpha1)) #0.159538
 
