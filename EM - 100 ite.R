@@ -69,11 +69,12 @@ for (ite in 1:100) {
   moni1 = mvrnorm(100,mean1,sd1)
   moni2 = mvrnorm(100,mean2,sd2)
   dat  = rbind(moni1,moni2)  #means true value of alpha is c(0.5,0.5)
-  alpha=c(0.7,0.3)
+
   w_ik0 = matrix(0, ncol = k, nrow = nrow(dat)) 
   w_ik_old=w_ik0
   
   # initial value
+  alpha=c(0.7,0.3)
   mu_s1=rep(1, ncol(dat)) #2 initial mean must be different
   mu_s2=rep(0, ncol(dat))
   mu_s=list(mu_s1,mu_s2)
@@ -96,7 +97,7 @@ for (ite in 1:100) {
 }  
 
 avg_bias = sum(abs(unlist(ye_mean1)))/length(unlist(ye_mean1)) #0.265304
-avg_bias1 = sum(unlist(ye_mean1))/length(unlist(ye_mean1)) #-0.1221698
+avg_bias1 = sum(unlist(ye_mean1))/length(unlist(ye_mean1)) #-0.1221698 #without absolute
 MSE=sum((unlist(ye_mean1))^2)/length(unlist(ye_mean1)) #0.1183009
 avg_alpha = sum(abs(unlist(ye_alpha1)))/length(unlist(ye_alpha1)) #0.159538
 
