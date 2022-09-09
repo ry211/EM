@@ -91,13 +91,14 @@ ye_alpha1 = list()
 
 for (ite in 1:100) {
   ye_mean1[[ite]]=matrix(unlist(ye1[[ite]]$mu),2,3,byrow = T) - matrix(unlist(meann),2,3,byrow = T)
-  ye_alpha1[[ite]]=matrix(unlist(ye1[[ite]]$alpha),length(unlist(ye1[[ite]]$alpha))/2,2,byrow = T) - matrix(c(0.7,0.3),length(unlist(ye1[[ite]]$alpha))/2,2,byrow = T)
-}  
+  #ye_alpha1[[ite]]=matrix(unlist(ye1[[ite]]$alpha),length(unlist(ye1[[ite]]$alpha))/2,2,byrow = T) - matrix(c(0.7,0.3),length(unlist(ye1[[ite]]$alpha))/2,2,byrow = T)
+  ye_alpha1[[ite]]=unlist(ye1[[ite]]$alpha)-c(0.7,0.3)}  
 
 avg_bias = sum(abs(unlist(ye_mean1)))/length(unlist(ye_mean1)) #0.0907313
-avg_bias1 = sum(unlist(ye_mean1))/length(unlist(ye_mean1)) #0.0907313
+avg_bias1 = sum(unlist(ye_mean1))/length(unlist(ye_mean1)) #-0.001306477
 MSE=sum((unlist(ye_mean1))^2)/length(unlist(ye_mean1)) #0.01490313
-avg_alpha = sum(abs(unlist(ye_alpha1)))/length(unlist(ye_alpha1)) #0.04703067
+avg_alpha = sum(abs(unlist(ye_alpha1)))/length(unlist(ye_alpha1)) #0.044456
+avg_alpha1 = sum(unlist(ye_alpha1))/length(unlist(ye_alpha1)) #2.581269e-17
 
 
 
