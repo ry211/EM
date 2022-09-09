@@ -33,7 +33,7 @@ GMM = function(dat,w_ik0,alpha,mu_s,sigma_s,epsilon,maxtimes_iterations){
     #N_k
     N_k = colSums(w_ik)
     alpha = N_k/nrow(dat)
-    alp[[i]] = alpha
+    #alp[[i]] = alpha
     
     for(j in 1:k){
       mu_s[[j]] = (t(as.matrix(w_ik[, j]))%*%dat) / N_k[j]
@@ -54,7 +54,7 @@ GMM = function(dat,w_ik0,alpha,mu_s,sigma_s,epsilon,maxtimes_iterations){
     
   }
   
-  list(mu=mu_s, COV=sigma_s, weight=w_ik,alpha=alp,ite_time=i) 
+  list(mu=mu_s, COV=sigma_s, weight=w_ik,alpha=alpha,ite_time=i) 
 }
 
 
